@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     // Make an Axios request to fetch the bottle number
     async function fetchData() {
-      axios.get('http://127.0.0.1:8000/get_count')
+      axios.get('https://eyepi.vercel.app/api/get_count')
         .then(response => {
           // Assuming your API response contains the bottle number
           setBottleNumber(response.data);
@@ -27,7 +27,7 @@ const Home = () => {
 
     async function fetchtable() {
       // Fetch data from the backend API using Axios
-      axios.get('http://127.0.0.1:8000/get_all')
+      axios.get('https://eyepi.vercel.app/api/get_all')
         .then(response => {
           setData(response.data);
           setIsLoading(false);
