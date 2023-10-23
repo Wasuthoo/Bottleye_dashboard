@@ -6,9 +6,6 @@ from typing import Union
 from pydantic import BaseModel
 import json
 
-import camera
-import model
-import arduno_com
 
 app = FastAPI()
 
@@ -51,19 +48,3 @@ def get_all_bottle_data():
 def get_all_bottle_data():
     return db.__len__()
 
-@app.get("/capture")
-def get_capture():
-    try :
-        img_bytes = camera.run_camera()
-        model_prediction = model.image_classification()
-        if (model_prediction) :
-            res = arduno_com.send_command()
-            if res=="Water Detected" :
-                return {"result": 0}
-            else :
-                return {"result": 1}
-        else :
-            return {"result": 0}
-        
-    except Exception as e:
-        return {"error": str(e)}
