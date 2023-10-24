@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     // Make an Axios request to fetch the bottle number
     async function fetchData() {
-      axios.get('http://54.91.182.80/get_count')
+      axios.get('http://18.209.16.118/get_count')
         .then(response => {
           // Assuming your API response contains the bottle number
           setBottleNumber(response.data);
@@ -27,7 +27,7 @@ const Home = () => {
 
     async function fetchtable() {
       // Fetch data from the backend API using Axios
-      axios.get('http://54.91.182.80/get_all')
+      axios.get('http://18.209.16.118/get_all')
         .then(response => {
           setData(response.data);
           setIsLoading(false);
